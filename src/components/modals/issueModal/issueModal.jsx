@@ -12,8 +12,6 @@ export default function IssueModal({ isEdit, status, defaultValue, onCancel }) {
   const { addIssue } = useAddIssue()
   const { updateIssue } = useUpdateIssue()
 
-  console.log('isEdit', isEdit)
-
   const [inputs, setInputs] = useState({
     sequence: defaultValue?.sequence || 0,
     title: defaultValue?.title || '',

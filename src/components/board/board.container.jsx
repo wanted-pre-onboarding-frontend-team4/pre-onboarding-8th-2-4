@@ -32,8 +32,6 @@ function BoardContainer() {
     })
   }
 
-  console.log('issueModalState', issueModalState)
-
   return (
     <S.Wrapper>
       <S.Header>
