@@ -8,17 +8,19 @@ import * as S from './issueModal.style'
 import SelectWithLabel from '../../inputs/selectWithLabel'
 import DatePickerWithLabel from '../../inputs/datePickerWithLabel'
 
-export default function IssueModal({ isEdit, defaultValue, handleToggleModal }) {
+export default function IssueModal({ isEdit, status, defaultValue, onCancel }) {
   const { addIssue } = useAddIssue()
   const { updateIssue } = useUpdateIssue()
 
+  console.log('isEdit', isEdit)
+
   const [inputs, setInputs] = useState({
-    sequence: defaultValue || 0,
-    title: defaultValue || '',
-    contents: defaultValue || '',
-    status: defaultValue || '',
-    assignee: defaultValue || '',
-    dueDate: defaultValue || '',
+    sequence: defaultValue?.sequence || 0,
+    title: defaultValue?.title || '',
+    contents: defaultValue?.contents || '',
+    status: defaultValue?.status || status || '',
+    assignee: defaultValue?.addIssue || '',
+    dueDate: defaultValue?.dueDate || '',
   })
 
   const handleChangeInputs = (field, value) => {
@@ -30,19 +32,25 @@ export default function IssueModal({ isEdit, defaultValue, handleToggleModal }) 
 
   const handleClickOk = () => {
     isEdit ? updateIssue(inputs.sequence, inputs) : addIssue(inputs)
-    handleToggleModal()
+    onCancel()
   }
 
   return (
-    <Modal open centered onOk={handleClickOk} onCancel={handleToggleModal}>
+    <Modal open centered onOk={handleClickOk} onCancel={onCancel}>
       <S.Wrapper>
-        <S.TitleWrapper>#{defaultValue?.sequence}</S.TitleWrapper>
-        <TextInputWithLabel label='제목' name='title' onChange={handleChangeInputs} />
+        <S.TitleWrapper>#{defaultValue?.sequence || ' Issue'}</S.TitleWrapper>
+        <TextInputWithLabel
+          label='제목'
+          name='title'
+          defaultValue={defaultValue?.title}
+          maxLength={100}
+          onChange={handleChangeInputs}
+        />
         <SelectWithLabel
           label='상태'
           name='status'
           isSearch={false}
-          defaultValue={defaultValue?.status}
+          defaultValue={defaultValue?.status || status}
           onChange={handleChangeInputs}
           options={[
             { value: 'todo', label: '할 일' },

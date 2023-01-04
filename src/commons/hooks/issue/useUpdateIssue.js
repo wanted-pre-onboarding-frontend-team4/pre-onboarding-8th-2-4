@@ -5,9 +5,10 @@ const useUpdateIssue = () => {
   const [issues, setIssues] = useRecoilState(issuesState)
 
   const updateIssue = (sequence, newInputs) => {
+    console.log('update', sequence, newInputs)
     const updated = { ...issues.items[sequence], ...newInputs }
 
-    setIssues((prev) => ({ ...prev, issues: { ...prev.items, [sequence]: updated } }))
+    setIssues((prev) => ({ ...prev, items: { ...prev.items, [sequence]: updated } }))
   }
 
   return {
