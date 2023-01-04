@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
-import issuesState from '../../store/issue'
+import { issuesState } from '../../store/issue'
 import useLoading from '../useLoadingModal'
 
 const useIssues = () => {
@@ -27,7 +27,7 @@ const useIssues = () => {
 
   return {
     isLoading,
-    issues,
+    issues: issues.issues,
   }
 }
 
