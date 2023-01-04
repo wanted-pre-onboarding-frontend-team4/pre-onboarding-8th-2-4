@@ -15,11 +15,11 @@ const useAddIssue = () => {
     const newIssue = createIssue(issues.sequence, inputs)
 
     setIssues((prev) => {
-      const copy = { ...prev.issues }
+      const copy = { ...prev.items }
       copy[newIssue.sequence] = newIssue
 
       return {
-        issues: copy,
+        items: copy,
         sequence: prev.sequence + 1,
       }
     })

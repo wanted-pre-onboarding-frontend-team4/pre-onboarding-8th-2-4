@@ -27,7 +27,7 @@ const useIssues = () => {
 
   return {
     isLoading,
-    issues: issues.issues,
+    issues: issues.items,
   }
 }
 

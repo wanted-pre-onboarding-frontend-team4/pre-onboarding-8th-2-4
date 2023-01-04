@@ -5,12 +5,12 @@ const useDeleteIssue = () => {
   const [issues, setIssues] = useRecoilState(issuesState)
 
   const deleteIssue = (sequence) => {
-    const copy = { ...issues.issues }
+    const copy = { ...issues.items }
     delete copy[sequence]
 
     setIssues((prev) => ({
       ...prev,
-      issues: copy,
+      items: copy,
     }))
   }
 
