@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { grabIssueState } from '../../commons/store/ui'
+import useUpdateIssue from '../../commons/hooks/issue/useUpdateIssue'
 import BoardUI from './board.presenter'
 
 function BoardContainer() {
@@ -7,6 +10,9 @@ function BoardContainer() {
     status: '',
     defaultValue: undefined,
   })
+
+  const [grabIssue] = useRecoilState(grabIssueState)
+  const { updateIssue } = useUpdateIssue()
 
   const handleCloseIssueModal = () => {
     setIssueModalState({
@@ -24,11 +30,16 @@ function BoardContainer() {
     })
   }
 
+  const handleUpdateIssueStatus = (targetStatus) => {
+    updateIssue(grabIssue.sequence, { ...grabIssue, status: targetStatus })
+  }
+
   return (
     <BoardUI
       issueModalState={issueModalState}
       handleOpenIssueModal={handleOpenIssueModal}
       handleCloseIssueModal={handleCloseIssueModal}
+      handleUpdateIssueStatus={handleUpdateIssueStatus}
     />
   )
 }

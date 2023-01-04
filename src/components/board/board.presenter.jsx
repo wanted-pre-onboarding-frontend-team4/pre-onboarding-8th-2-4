@@ -1,7 +1,7 @@
 import * as S from './board.styles'
 import IssueModal from '../modals/issueModal/issueModal'
 import Column from '../column/column'
-// import useUpdateIssue from '../../commons/hooks/issue/useUpdateIssue'
+
 
 const statuses = [
   { title: '할 일', status: 'todo' },
@@ -9,15 +9,18 @@ const statuses = [
   { title: '완료', status: 'done' },
 ]
 
-export default function BoardUI({ issueModalState, handleOpenIssueModal, handleCloseIssueModal }) {
-  //   const { updateIssue } = useUpdateIssue()
-
+export default function BoardUI({
+  issueModalState,
+  handleOpenIssueModal,
+  handleCloseIssueModal,
+  handleUpdateIssueStatus,
+}) {
   const handleDragOver = (e) => {
     e.preventDefault()
   }
 
   const handleDrop = (status) => () => {
-    console.log('drop - status', status)
+    handleUpdateIssueStatus(status)
   }
 
   return (

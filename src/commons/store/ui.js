@@ -5,4 +5,7 @@ export const loadingModalVisibleState = atom({
   default: false,
 })
 
-export const XX = ''
+export const grabIssueState = atom({
+  key: 'grabIssueState',
+  default: undefined,
+})

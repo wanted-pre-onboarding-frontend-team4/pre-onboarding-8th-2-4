@@ -1,12 +1,19 @@
+import { useRecoilState } from 'recoil'
 import { Card } from 'antd'
 import { DeleteOutlined, CalendarOutlined, UserOutlined } from '@ant-design/icons'
 import * as S from './issueItem.styles'
+import { grabIssueState } from '../../commons/store/ui'
 
 export default function IssueItemUI({ issue, handleClickItem, handleClickDelete }) {
+  const [, setGrabIssue] = useRecoilState(grabIssueState)
+
   const handleDragStart = (e) => {
-    console.log('handleDragStart', e)
-    
+    setGrabIssue(issue)
+
+    e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/html', e.target)
   }
+
   return (
     <S.Wrapper draggable onDragStart={handleDragStart}>
       <Card
