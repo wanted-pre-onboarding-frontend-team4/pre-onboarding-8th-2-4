@@ -4,9 +4,9 @@ import Column from '../column/column'
 
 
 const statuses = [
-  { title: '할 일', status: 'todo' },
-  { title: '진행 중', status: 'ongoing' },
-  { title: '완료', status: 'done' },
+  { title: '👀 Todo', status: 'todo' },
+  { title: '🔥 Ongoing', status: 'ongoing' },
+  { title: '🥳 Done', status: 'done' },
 ]
 
 export default function BoardUI({
@@ -26,7 +26,7 @@ export default function BoardUI({
   return (
     <S.Wrapper>
       <S.Header>
-        <h1>asdf</h1>
+        <h1>Issue List</h1>
       </S.Header>
 
       <S.Section>

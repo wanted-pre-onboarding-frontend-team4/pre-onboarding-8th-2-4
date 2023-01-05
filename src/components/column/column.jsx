@@ -13,6 +13,7 @@ export default function Column({ title, status, onClickAddItem, onClickItem }) {
   return (
     <S.Wrapper>
       <S.TitleWrapper>{title}</S.TitleWrapper>
+      <AddIssueButton onClick={handleClickAddItem} />
       <S.ContentsWrapper>
         {issues &&
           Object.entries(issues)
@@ -20,7 +21,6 @@ export default function Column({ title, status, onClickAddItem, onClickItem }) {
             .sort(([, a], [, b]) => a.order - b.order)
             .map(([k, v]) => <IssueItem key={k} issue={v} onClickItem={onClickItem} />)}
       </S.ContentsWrapper>
-      <AddIssueButton onClick={handleClickAddItem} />
     </S.Wrapper>
   )
 }

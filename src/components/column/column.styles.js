@@ -9,8 +9,9 @@ export const Wrapper = styled.div`
 `
 
 export const TitleWrapper = styled.h2`
-  background-color: wheat;
   padding: 16px;
+  font-size: 2rem;
+  font-weight: 700;
 `
 
 export const ContentsWrapper = styled.div`

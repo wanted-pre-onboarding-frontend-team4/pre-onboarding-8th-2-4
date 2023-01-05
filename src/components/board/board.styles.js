@@ -7,6 +7,15 @@ export const Wrapper = styled.div`
 
 export const Header = styled.header`
   height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > h1 {
+    font-size: 3rem;
+    font-weight: 900;
+  }
 `
 
 export const Section = styled.section`
