@@ -7,7 +7,7 @@ export const issuesState = atom({
   key: 'issuesState',
   default: {
     items: {},
-    sequence: 0,
+    sequence: 1,
   },
   effects_UNSTABLE: [persistAtom],
 })

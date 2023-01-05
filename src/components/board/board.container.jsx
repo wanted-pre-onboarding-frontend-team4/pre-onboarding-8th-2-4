@@ -31,6 +31,7 @@ function BoardContainer() {
   }
 
   const handleUpdateIssueStatus = (targetStatus) => {
+    if (grabIssue.status === targetStatus) return
     updateIssue(grabIssue.sequence, { ...grabIssue, status: targetStatus })
   }
 

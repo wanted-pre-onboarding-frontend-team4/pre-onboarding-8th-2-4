@@ -4,7 +4,12 @@ import { DeleteOutlined, CalendarOutlined, UserOutlined } from '@ant-design/icon
 import * as S from './issueItem.styles'
 import { grabIssueState } from '../../commons/store/ui'
 
-export default function IssueItemUI({ issue, handleClickItem, handleClickDelete }) {
+export default function IssueItemUI({
+  issue,
+  handleClickItem,
+  handleClickDelete,
+  handleUpdateIssueOrder,
+}) {
   const [, setGrabIssue] = useRecoilState(grabIssueState)
 
   const handleDragStart = (e) => {
@@ -14,8 +19,20 @@ export default function IssueItemUI({ issue, handleClickItem, handleClickDelete 
     e.dataTransfer.setData('text/html', e.target)
   }
 
+  const handleDrop = () => {
+    handleUpdateIssueOrder(issue)
+  }
+
+  const handleDragOver = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <S.Wrapper draggable onDragStart={handleDragStart}>
+    <S.Wrapper
+      draggable
+      onDragStart={handleDragStart}
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}>
       <Card
         onClick={handleClickItem}
         style={{ width: '100%' }}

@@ -17,6 +17,7 @@ export default function Column({ title, status, onClickAddItem, onClickItem }) {
         {issues &&
           Object.entries(issues)
             .filter(([, v]) => v.status === status)
+            .sort(([, a], [, b]) => a.order - b.order)
             .map(([k, v]) => <IssueItem key={k} issue={v} onClickItem={onClickItem} />)}
       </S.ContentsWrapper>
       <AddIssueButton onClick={handleClickAddItem} />
