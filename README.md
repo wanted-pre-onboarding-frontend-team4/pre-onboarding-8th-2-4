@@ -2,8 +2,9 @@
 
 > 원티드 프리온보딩 과제 2주차 (칸반보드)
 >
-> 기간 : 2022년 1월 3일 ~ 2023년 1월 6일
+> 기간 : 2023년 1월 3일 ~ 2023년 1월 6일
 
+![main](https://user-images.githubusercontent.com/104765779/211009701-71cdeeac-0c15-4d83-896c-52740d203633.PNG)
 <br />
 
 ## 📖 목차
@@ -27,9 +28,48 @@
 <br />
 
 ## 📌배포링크
+https://pre-onboarding-8th-2-4.vercel.app/
+
+<details>
+  <summary>이슈 삭제</summary>
+    <div markdown="1">
+      <img src= "https://user-images.githubusercontent.com/104765779/211010550-9b0f520d-ea55-4c6c-a95a-b74d764e2d71.gif"/>
+    </div>
+</details>
+
+<details>
+  <summary>이슈 생성</summary>
+    <div markdown="1">
+       <img src= "https://user-images.githubusercontent.com/104765779/211010695-f67fa9f4-2421-4662-aa48-54dab8bd7411.gif"/>
+    </div>
+</details>
+
+<details>
+  <summary>입력 예외처리</summary>
+    <div markdown="1">
+       <img src= "https://user-images.githubusercontent.com/104765779/211010927-905d4bfc-5f48-42d6-88d5-b171ae17f3fa.gif"/>
+    </div>
+</details>
+
+<details>
+  <summary>드래그 앤 드랍</summary>
+    <div markdown="1">
+       <img src= "https://user-images.githubusercontent.com/104765779/211010842-75667d68-16fe-4c9f-ad31-fea22962b0ca.gif"/>
+    </div>
+</details>
+
+
+<details>
+  <summary>이슈 수정</summary>
+    <div markdown="1">
+       <img src= "https://user-images.githubusercontent.com/104765779/211010773-ef7ad14c-88ab-4614-9207-5d532469b4bf.gif"/>
+    </div>
+</details>
+
+
 
 <br />
-
+ 
 ## 😊협업과정
 
 본 프로젝트는 하나의 결과물을 내기 위해 동료학습을 중점으로 하여 진행하였습니다. 각자 자신이 구현한 코드에 대해 **어떠한 목적을 갖고 해당 방식을 선택하여 기능을 구현하였는가**의 설명과 **팀원들이 구현한 코드에 대한 피드백** 및 리팩토링하는 방식으로 Best Practice를 채택하였습니다.
@@ -65,11 +105,74 @@
 <br />
 
 ## ✅Best Practice 및 채택 근거
+### 1. custom-hook
+* 커스텀을 훅을 사용하여 비즈니스 로직을 분리하였습니다. 기존에 container 컴포넌트에 이벤트 핸들러 함수와 비즈니스 로직이 혼합되어 있어 복잡하고 비즈니스 로직을 재사용할 수 없는 단점이 있었는데 커스텀 훅을 사용함으로 이벤트 핸들러 함수와 분리하여 컴포넌트의 복잡성을 낮추고 로직을 재사용할 수 있도록 했습니다.  
+https://github.com/wanted-pre-onboarding-frontend-team4/pre-onboarding-8th-2-4/blob/194f0f0731433657d4bb4a230959876164e09828/src/commons/hooks/useLoadingModal.js#L1-L18
 
+### 2. 폴더구조
+* jsx를 사용하는 컴포넌트와 js 파일을 components, commons 폴더로 각각 분리했습니다. 
+* 화면에 보이는 것에 관여하는 파일과 그렇지 않은 파일을 다르게 묶음으로써 문제가 발생했을 때 어디에 해당하는지 빠르게 찾을 수 있다고 생각했습니다. 
+* 그 이후에 각 관심사별로 하위 폴더를 나누어 문제를 빠르게 찾을 수 있도록 했습니다.  
+https://github.com/wanted-pre-onboarding-frontend-team4/pre-onboarding-8th-2-4/blob/194f0f0731433657d4bb4a230959876164e09828/src/components/inputs/textInputWithLabel.jsx#L1-L29  
+
+### 3. UI 
+* antd UI 라이브러리를 사용해서 통일된 디자인을 사용할 수 있었습니다.
+* button, input, checkbox 등 다양한 컴포넌트를 지원합니다.
+* 제한된 개발기간내에 기능 개발에 우선적으로 집중할 수 있도록 UI 라이브러리를 사용하였습니다.
+
+
+### 4. localStorage
+* 생성한 이슈들을 관리하기 위해 로컬스토리지를 사용했습니다. 
+* 로컬스토리지를 어떻게 사용하는지에 집중하기 보다 비즈니스 로직 구현에 집중할 수 있도록 recoil-persist를 사용했습니다.  
+https://github.com/wanted-pre-onboarding-frontend-team4/pre-onboarding-8th-2-4/blob/194f0f0731433657d4bb4a230959876164e09828/src/commons/recoil/issue.js#L1-L15
 ## 📁폴더구조
 
 ```
-
+src
+ ┣ commons
+ ┃ ┣ hooks
+ ┃ ┃ ┣ issue
+ ┃ ┃ ┃ ┣ useAddIssue.js
+ ┃ ┃ ┃ ┣ useDeleteIssue.js
+ ┃ ┃ ┃ ┣ useIssues.js
+ ┃ ┃ ┃ ┗ useUpdateIssue.js
+ ┃ ┃ ┗ useLoadingModal.js
+ ┃ ┣ recoil
+ ┃ ┃ ┣ issue.js
+ ┃ ┃ ┗ ui.js
+ ┃ ┣ styles
+ ┃ ┃ ┗ globalStyles.js
+ ┃ ┗ util
+ ┃ ┃ ┗ debounce.js
+ ┣ components
+ ┃ ┣ board
+ ┃ ┃ ┣ board.container.jsx
+ ┃ ┃ ┣ board.presenter.jsx
+ ┃ ┃ ┗ board.styles.js
+ ┃ ┣ buttons
+ ┃ ┃ ┗ addIssueButton.jsx
+ ┃ ┣ column
+ ┃ ┃ ┣ column.jsx
+ ┃ ┃ ┗ column.styles.js
+ ┃ ┣ inputs
+ ┃ ┃ ┣ common.styles.js
+ ┃ ┃ ┣ datePickerWithLabel.jsx
+ ┃ ┃ ┣ selectWithLabel.jsx
+ ┃ ┃ ┣ textAreaWithLabel.jsx
+ ┃ ┃ ┗ textInputWithLabel.jsx
+ ┃ ┣ item
+ ┃ ┃ ┣ issueItem.jsx
+ ┃ ┃ ┣ issueItem.presenter.jsx
+ ┃ ┃ ┗ issueItem.styles.js
+ ┃ ┗ modals
+ ┃ ┃ ┣ issueModal
+ ┃ ┃ ┃ ┣ issueModal.jsx
+ ┃ ┃ ┃ ┗ issueModal.style.js
+ ┃ ┃ ┗ loadingModal
+ ┃ ┃ ┃ ┣ loadingModal.jsx
+ ┃ ┃ ┃ ┗ loadingModal.styles.js
+ ┣ App.js
+ ┗ index.js
 
 ```
 
@@ -82,7 +185,8 @@
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" >
  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white" >
 <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" >
-<img src="https://img.shields.io/badge/ReactRouter-CA4245?style=for-the-badge&logo=ReactRouter&logoColor=white" >
+<img src="https://img.shields.io/badge/Recoil-CA4245?style=for-the-badge&logo=Recoil&logoColor=white" >
+<img src="https://img.shields.io/badge/Andt-61DAFB?style=for-the-badge&logo=Andt&logoColor=white" >
  </div>
 
 <br />
