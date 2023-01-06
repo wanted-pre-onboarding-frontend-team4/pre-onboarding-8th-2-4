@@ -1,27 +1,26 @@
-import * as S from './board.styles'
-import IssueModal from '../modals/issueModal/issueModal'
-import Column from '../column/column'
-
+import * as S from 'components/board/board.styles';
+import IssueModal from 'components/modals/issueModal/issueModal';
+import Column from 'components/column/column';
 
 const statuses = [
   { title: '👀 Todo', status: 'todo' },
   { title: '🔥 Ongoing', status: 'ongoing' },
   { title: '🥳 Done', status: 'done' },
-]
+];
 
-export default function BoardUI({
+const BoardUI = ({
   issueModalState,
   handleOpenIssueModal,
   handleCloseIssueModal,
   handleUpdateIssueStatus,
-}) {
-  const handleDragOver = (e) => {
-    e.preventDefault()
-  }
+}) => {
+  const handleDragOver = e => {
+    e.preventDefault();
+  };
 
-  const handleDrop = (status) => () => {
-    handleUpdateIssueStatus(status)
-  }
+  const handleDrop = status => () => {
+    handleUpdateIssueStatus(status);
+  };
 
   return (
     <S.Wrapper>
@@ -31,7 +30,11 @@ export default function BoardUI({
 
       <S.Section>
         {statuses.map(({ title, status }) => (
-          <S.ColumnWrapper key={status} onDragOver={handleDragOver} onDrop={handleDrop(status)}>
+          <S.ColumnWrapper
+            key={status}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop(status)}
+          >
             <Column
               title={title}
               status={status}
@@ -51,5 +54,7 @@ export default function BoardUI({
         />
       )}
     </S.Wrapper>
-  )
-}
+  );
+};
+
+export default BoardUI;

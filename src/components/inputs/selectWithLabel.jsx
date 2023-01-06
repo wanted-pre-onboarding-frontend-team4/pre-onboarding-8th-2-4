@@ -1,7 +1,8 @@
-import { Select } from 'antd'
-import * as S from './common.styles'
+import { Select } from 'antd';
 
-export default function SelectWithLabel({
+import * as S from 'components/inputs/common.styles';
+
+const SelectWithLabel = ({
   label,
   name,
   onChange,
@@ -9,10 +10,10 @@ export default function SelectWithLabel({
   isSearch,
   defaultValue,
   placeholder,
-}) {
-  const handleChange = (value) => {
-    onChange(name, value)
-  }
+}) => {
+  const handleChange = value => {
+    onChange(name, value);
+  };
 
   return (
     <S.Wrapper>
@@ -26,9 +27,13 @@ export default function SelectWithLabel({
           style={{ width: '100%' }}
           onChange={handleChange}
           options={options}
-          filterOption={(input, option) => (option?.label ?? '').includes(input)}
+          filterOption={(input, option) =>
+            (option?.label ?? '').includes(input)
+          }
         />
       </S.InputWrapper>
     </S.Wrapper>
-  )
-}
+  );
+};
+
+export default SelectWithLabel;

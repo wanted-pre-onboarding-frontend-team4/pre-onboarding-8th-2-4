@@ -1,9 +1,11 @@
-import { RecoilRoot } from 'recoil'
-import GlobalStyles from './commons/styles/globalStyles'
-import BoardContainer from './components/board/board.container'
-import LoadingModal from './components/modals/loadingModal/loadingModal'
+import { RecoilRoot } from 'recoil';
 
-function App() {
+import GlobalStyles from 'commons/styles/globalStyles';
+
+import BoardContainer from 'components/board/board.container';
+import LoadingModal from 'components/modals/loadingModal/loadingModal';
+
+const App = () => {
   return (
     <RecoilRoot>
       <GlobalStyles />
@@ -11,7 +13,7 @@ function App() {
       <LoadingModal />
       <BoardContainer />
     </RecoilRoot>
-  )
-}
+  );
+};
 
-export default App
+export default App;

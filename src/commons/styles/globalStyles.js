@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import reset from 'styled-reset'
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
   ${reset}
@@ -31,5 +31,5 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
-`
-export default GlobalStyles
+`;
+export default GlobalStyles;

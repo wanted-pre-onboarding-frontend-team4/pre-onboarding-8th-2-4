@@ -1,12 +1,19 @@
-import { Input } from 'antd'
-import * as S from './common.styles'
+import { Input } from 'antd';
 
-const { TextArea } = Input
+import * as S from 'components/inputs/common.styles';
 
-export default function TextAreaWithLabel({ label, name, onChange, placeholder, defaultValue }) {
-  const handleChange = (e) => {
-    onChange(name, e.target.value)
-  }
+const { TextArea } = Input;
+
+const TextAreaWithLabel = ({
+  label,
+  name,
+  onChange,
+  placeholder,
+  defaultValue,
+}) => {
+  const handleChange = e => {
+    onChange(name, e.target.value);
+  };
   return (
     <S.Wrapper style={{ alignItems: 'start' }}>
       <S.LabelWrapper>{label}</S.LabelWrapper>
@@ -21,5 +28,7 @@ export default function TextAreaWithLabel({ label, name, onChange, placeholder, 
         />
       </S.InputWrapper>
     </S.Wrapper>
-  )
-}
+  );
+};
+
+export default TextAreaWithLabel;

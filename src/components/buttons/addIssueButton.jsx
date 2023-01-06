@@ -1,10 +1,11 @@
-import { PlusOutlined } from '@ant-design/icons'
-import * as S from './addIssueButton.styles'
+import { Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
-export default function AddIssueButton({ onClick }) {
+const AddIssueButton = ({ onClick }) => {
   return (
-    <S.ButtonWrapper type='primary' size='large' onClick={onClick}>
+    <Button type="primary" size="large" onClick={onClick}>
       <PlusOutlined />
-    </S.ButtonWrapper>
-  )
-}
+    </Button>
+  );
+};
+export default AddIssueButton;

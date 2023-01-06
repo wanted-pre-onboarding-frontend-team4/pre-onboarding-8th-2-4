@@ -1,34 +1,35 @@
-import { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
-import { issuesState } from '../../store/issue'
-import useLoading from '../useLoadingModal'
+import { useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+
+import issuesState from 'commons/recoil/issue';
+import useLoading from 'commons/hooks/useLoadingModal';
 
 const useIssues = () => {
-  const [issues] = useRecoilState(issuesState)
-  const [isLoading, setLoading] = useState(true)
+  const [issues] = useRecoilState(issuesState);
+  const [isLoading, setLoading] = useState(true);
 
-  const { showLoadingModal, hideLoadingModal } = useLoading()
+  const { showLoadingModal, hideLoadingModal } = useLoading();
 
   useEffect(() => {
-    setLoading(true)
-    const loading = setTimeout(() => setLoading(false), 500)
+    setLoading(true);
+    const loading = setTimeout(() => setLoading(false), 500);
     return () => {
-      clearTimeout(loading)
-    }
-  }, [issues])
+      clearTimeout(loading);
+    };
+  }, [issues]);
 
   useEffect(() => {
     if (isLoading) {
-      showLoadingModal()
-      return
+      showLoadingModal();
+      return;
     }
-    hideLoadingModal()
-  }, [isLoading])
+    hideLoadingModal();
+  }, [isLoading]);
 
   return {
     isLoading,
     issues: issues.items,
-  }
-}
+  };
+};
 
-export default useIssues
+export default useIssues;

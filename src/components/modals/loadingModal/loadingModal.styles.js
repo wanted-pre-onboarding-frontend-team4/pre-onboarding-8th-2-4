@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div(
-  (props) => css`
+  props => css`
     height: 100%;
     min-height: 100vh;
     min-width: 100vw;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div(
     justify-content: center;
     z-index: 999;
     display: flex;
-  `
-)
+  `,
+);
 
-export const Contents = styled.div``
+export const Contents = styled.div``;
