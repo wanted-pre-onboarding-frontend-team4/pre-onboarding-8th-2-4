@@ -1,4 +1,3 @@
-import { Spin } from 'antd';
 import { useRecoilState } from 'recoil';
 
 import { loadingModalVisibleState } from 'commons/recoil/ui';
@@ -11,7 +10,11 @@ const LoadingModal = () => {
   return (
     <S.Wrapper visibility={isLoading ? 'visible' : 'hidden'}>
       <S.Contents>
-        <Spin size="large" />
+        <S.LoadingContainer>
+          <S.LoadingPosition>
+            <S.Spin />
+          </S.LoadingPosition>
+        </S.LoadingContainer>
       </S.Contents>
     </S.Wrapper>
   );
