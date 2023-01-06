@@ -5,6 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "antd": "^5.1.2",
+    "dayjs": "^1.11.7",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -19,13 +20,28 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint src/**/*/*.jsx"
+    "postinstall": "husky install",
+    "format": "prettier --cache --write .",
+    "lint": "eslint --cache ."
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "npm run check-conflict-formatting-rules",
+      "npm run prettier:fix",
+      "npm run lint:fix"
+    ],
+    "*.js": "eslint --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": {
     "production": [
@@ -40,13 +56,15 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.8.1"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0"
   }
 }
