@@ -21,9 +21,10 @@
 
 ## 💪팀원명
 
-| 성환(팀장)                              | 수민(팀원)                              | 용훈(팀원)                            | 혜진(팀원)                                | 정민(팀원)                                |
-| --------------------------------------- | --------------------------------------- | ------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| <img src="https://avatars.githubusercontent.com/u/104765779?v=4" width="120" height="120" /> | <img src="https://avatars.githubusercontent.com/u/92634711?v=4" width="120" height="120" /> | <img src="https://avatars.githubusercontent.com/u/105702862?v=4" width="120" height="120" /> | <img src="https://avatars.githubusercontent.com/u/44992033?v=4" width="120" height="120" /> | <img src="https://avatars.githubusercontent.com/u/91598778?v=4" width="120" height="120" /> |
+|:---:|:---:|:---:|:---:|:---:|
 | [tlsrb100](https://github.com/tlsrb100) | [tnals545](https://github.com/tnals545) | [KKKHun2](https://github.com/KKKHun2) | [hyejineee](https://github.com/hyejineee) | [jeongmin7](https://github.com/jeongmin7) |
+| 성환(팀장)                              | 수민(팀원)                              | 용훈(팀원)                            | 혜진(팀원)                                | 정민(팀원)                                |
 
 <br />
 
